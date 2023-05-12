@@ -1,7 +1,20 @@
 <div>
 
-    <h3>
+  <h3>LISTA LIBROS</h3>
 
-        Pagina de administrador
-    </h3>
+  {{#each this.allBooks}}
+    <li>
+      <img src="{{this.image}}" alt="Portada libro"  height="200px" />
+      <h4>{{this.title}}</h4>
+
+      <h4>{{this.author}}</h4>
+      <h4>{{this.synopsis}}</h4>
+      <h5>{{this.numPag}} páginas</h5>
+      <h4>{{this.genre}}</h4>
+      <a href="/admin/create"><button>Crear</button></a>
+      <a href="/admin/editDelete"><button>Editar</button></a>
+      <a href="admin/index-admin"> <button>Borrar</button></a>
+    </li>
+  {{/each}}
+
 </div>

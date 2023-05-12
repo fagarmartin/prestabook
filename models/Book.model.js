@@ -31,7 +31,7 @@ const bookSchema = new Schema({
       ref: "User",
     },
   ],
-  quantity: Number,
+  // quantity: Number,
   image: {
     type: String,
     required: true,
