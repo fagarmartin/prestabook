@@ -6,8 +6,8 @@ const userSchema = new Schema(
     username: {
       type: String,
       trim: true,
-      required: false,
-      unique: true
+      required: true,
+      unique: false
     },
     email: {
       type: String,
@@ -19,6 +19,11 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true
+    }
+    ,role:{
+      type:String,
+      enum:["user","admin"],
+      default:"user"
     }
   },
   {
