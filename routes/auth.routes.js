@@ -83,11 +83,27 @@ router.post("/login", async (req, res, next) => {
     }
     req.session.user = foundUser;
     req.session.save(() => {
-      res.redirect("/");
+      
+      //segun su rol le redirecciona a una pagina diferente
+      if(foundUser.role==="admin")
+      {
+        res.redirect("/admin/index-admin");
+      }
+      else{
+        res.redirect("/");
+      }
+     
     });
   } catch (error) {
     next(error);
   }
 });
+
+// GET "/auth/logout" cierra sesion activa y redirecciona a login
+router.get("/logout",(req,res,out)=>{
+  req.session.destroy(()=>{
+    res.redirect("/auth/login")
+  })
+})
 
 module.exports = router;

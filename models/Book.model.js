@@ -19,9 +19,9 @@ const bookSchema = new Schema({
       "Terror",
       "Novela negra",
       "Narrativa",
-      "Histórica",
-      "Poesía",
-      "Ficción",
+      "Historica",
+      "Poesia",
+      "Ficcion",
     ],
     required: true,
   },
@@ -32,6 +32,10 @@ const bookSchema = new Schema({
     },
   ],
   quantity: Number,
+  image: {
+    type: String,
+    required: true,
+  },
 });
 
 const Book = model("Book", bookSchema);
