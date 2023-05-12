@@ -1,19 +1,21 @@
 <div>
 
   <h3>LISTA LIBROS</h3>
-
+  <a href="/admin/create"><button>Crear</button></a>
   {{#each this.allBooks}}
     <li>
-      <img src="{{this.image}}" alt="Portada libro"  height="200px" />
+      <img src="{{this.image}}" alt="Portada libro" height="200px" />
       <h4>{{this.title}}</h4>
 
       <h4>{{this.author}}</h4>
       <h4>{{this.synopsis}}</h4>
       <h5>{{this.numPag}} páginas</h5>
       <h4>{{this.genre}}</h4>
-      <a href="/admin/create"><button>Crear</button></a>
-      <a href="/admin/editDelete"><button>Editar</button></a>
-      <a href="admin/index-admin"> <button>Borrar</button></a>
+
+      <a href="/admin/{{this._id}}/edit"><button>Editar</button></a>
+      <form action="/admin/{{this._id}}/delete" method="post">
+        <button>Borrar</button>
+      </form>
     </li>
   {{/each}}
 
