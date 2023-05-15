@@ -8,5 +8,12 @@
       <h4>{{this.bookDetails.synopsis}}</h4>
       <h5>{{this.bookDetails.numPag}} páginas</h5>
       <h4>{{this.bookDetails.genre}}</h4>
+
+      <form action="/book/{{this.bookDetails._id}}/prestado" method="post">
+      {{#if this.bookDetails.stock}}
     <button>Prestar</button>
+    {{else}}
+    <button disabled="disabled">Prestar</button>
+    {{/if}}
+</form>
 </div>

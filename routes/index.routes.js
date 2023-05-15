@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 const Book = require("../models/Book.model.js");
+const { isUser, isLoggedIn } = require("../middlewares/auth.middlewares.js");
 
 // GET "/"=> renderiza la pagina principal
-router.get("/", async (req, res, next) => {
+router.get("/",isLoggedIn,isUser, async (req, res, next) => {
   try{
     const allBooks= await Book.find().select({title : 1, author:1, image: 1}).sort({title: 1})
 
@@ -28,7 +29,7 @@ router.use("/admin",adminRouter)
 
 //rutas para los  libros
 const bookRouter=require("./book.routes")
-router.use("/book",bookRouter)
+router.use("/book",isLoggedIn,isUser, bookRouter)
 
 
 //rutas para login y signup

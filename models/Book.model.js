@@ -36,6 +36,10 @@ const bookSchema = new Schema({
     type: String,
     required: true,
   },
+  stock:{
+    type:Number,
+    default: 1
+  } 
 });
 
 const Book = model("Book", bookSchema);
