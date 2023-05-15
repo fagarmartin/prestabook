@@ -1,2 +1,13 @@
-<h1>{{appTitle}} 🚀</h1>
-<p>Welcome Ironhacker!</p>
+<div>
+  <h3>PRESTABOOK</h3>
+  
+  {{#each this.allBooks}}
+    <li>
+     <a href="/book/{{this._id}}"><img src="{{this.image}}" alt="Portada libro" height="200px" /></a> 
+      <h4>{{this.title}}</h4>
+
+      <h4>{{this.author}}</h4>
+    </li>
+  {{/each}}
+
+</div>

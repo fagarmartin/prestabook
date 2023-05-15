@@ -1,11 +1,20 @@
 const express = require('express');
 const router = express.Router();
 
+const Book = require("../models/Book.model.js");
 
+// GET "/"=> renderiza la pagina principal
+router.get("/", async (req, res, next) => {
+  try{
+    const allBooks= await Book.find().select({title : 1, author:1, image: 1}).sort({title: 1})
 
-/* GET home page */
-router.get("/", (req, res, next) => {
-  res.render("index");
+  res.render("index",{
+    allBooks
+  });
+  }
+catch(error){
+  next(error)
+}
 });
 
 //para las rutas de usuario autenticado
