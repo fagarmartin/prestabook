@@ -28,8 +28,8 @@ router.post("/:idPrestamo/retornado",async(req,res,next)=>{
         
           // actualiza el prestamo y cambia el estado a retornado
         const prestaBook= await Prestamo.findByIdAndUpdate(req.params.idPrestamo,{status:"Retornado"})
-        const foundBook= await Book.findById(prestaBook.book) // encontrar el libro por la id de la propiedad book del prestamo
-        await Book.findByIdAndUpdate(prestaBook.book,{stock:foundBook.stock+1})// suma uno al stock actual
+        // const foundBook= await Book.findById(prestaBook.book) // encontrar el libro por la id de la propiedad book del prestamo
+        await Book.findByIdAndUpdate(prestaBook.book,{$inc:{stock:1}})// suma uno al stock actual
             
         res.redirect("/private/profile") //todo cambiar redireccion a la pagina de perfil de usuario        
        

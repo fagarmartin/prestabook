@@ -1,22 +1,30 @@
-<div>
+<div >
 
+<div class="create-form" >
+  <h3>FORMULARIO CREAR LIBROS</h3>
   <form action="/admin/create" method="post" enctype="multipart/form-data" >
+ <div class="input-form">
   <label for="image">Portada</label>
     <input type="file" name="image" required>
+    </div>
+    <div class="input-form">
     <label for="title">Título</label>
     <input type="text" name="title" required />
-    <br />
-    
+    </div>
+    <div class="input-form">
     <label for="synopsis">Argumento</label>
     <textarea name="synopsis" rows="4" cols="50">
     </textarea>
-    <br />
+    </div>
+    <div class="input-form">
     <label for="numPag">Número de páginas</label>
     <input type="number" name="numPag" required/>
-    <br />
+   </div>
+   <div class="input-form">
     <label for="author">Autor</label>
     <input type="text" name="author" required />
-    <br />
+    </div>
+    <div class="input-form">
     <label for="genre">Género</label>
     <select name="genre" required>
       <option value="">Seleccione una opción</option>
@@ -28,8 +36,10 @@
       <option value="Poesia">Poesia</option>
       <option value="Ficcion">Ficcion</option>
     </select>
-    <br>
-    <button>Añadir</button>
+    </div>
+    <div class="añadir-btn">
+    <button >AÑADIR</button>
+    </div>
   </form>
-
+</div>
 </div>
