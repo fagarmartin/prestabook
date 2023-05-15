@@ -20,7 +20,7 @@ catch(error){
 
 //para las rutas de usuario autenticado
 const privateRouter=require("./private.routes")
-router.use("/private",privateRouter)
+router.use("/private",isLoggedIn,isUser,privateRouter)
 
 
 //rutas de acceso exclusivo de admin

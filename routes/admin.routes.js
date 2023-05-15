@@ -39,7 +39,7 @@ router.post("/create", uploader.single("image"), async (req, res, next) => {
       image: req.file.path,
     });
     console.log("libro añadido");
-    res.redirect("/admin/create"); // cambiar ruta de redireccion despues de crear BD
+    res.redirect("/admin/index-admin");
   } catch (error) {
     next(error);
   }
@@ -58,40 +58,35 @@ router.get("/:id/edit", isAdmin, async (req, res, next) => {
 
 //POST "/admin/:id/edit" => recibe la informacion del formulario de editar
 //  uploader.single("image"),
-router.post(  "/:id/edit",  isAdmin,async (req, res, next) => {
-    const { title, synopsis, numPag, author, genre } = req.body;
-    try {
-      const editBooks = await Book.findByIdAndUpdate(
-        req.params.id,
-        {
-          title,
-          synopsis,
-          numPag,
-          author,
-          genre,
-         // image: req.file.path,
-        },
-        { new: true }
-      );
-      res.redirect("/admin/index-admin");
-    } catch (error) {
-      next(error);
-    }
+router.post("/:id/edit", isAdmin, async (req, res, next) => {
+  const { title, synopsis, numPag, author, genre } = req.body;
+  try {
+    const editBooks = await Book.findByIdAndUpdate(
+      req.params.id,
+      {
+        title,
+        synopsis,
+        numPag,
+        author,
+        genre,
+        // image: req.file.path,
+      },
+      { new: true }
+    );
+    res.redirect("/admin/index-admin");
+  } catch (error) {
+    next(error);
   }
-);
+});
 
 //POST "/admin/:id/delete" => borrar libro por su id
-router.post("/:id/delete",isAdmin,async(req,res,next)=>{
-try{
-
-  const bookDeleted=await Book.findByIdAndDelete(req.params.id)
-  res.redirect("/admin/index-admin")
-}
-catch(error)
-{
-  next(error)
-}
-
-})
+router.post("/:id/delete", isAdmin, async (req, res, next) => {
+  try {
+    const bookDeleted = await Book.findByIdAndDelete(req.params.id);
+    res.redirect("/admin/index-admin");
+  } catch (error) {
+    next(error);
+  }
+});
 
 module.exports = router;

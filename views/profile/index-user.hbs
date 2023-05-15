@@ -1,5 +1,36 @@
 <div>
 
-<h3>Página privada del usuario</h3>
+  <h3>Página privada del usuario</h3>
+
+  <div>
+    <h3>En préstamo</h3>
+    {{#each this.prestadoBooks}}
+      {{! bucle para los libros dentro de la propiedad book }}
+      <img
+        src="{{this.book.image}}"
+        alt="{{this.book.title}}-img"
+        width="100px"
+      />
+      <p>{{this.book.title}}</p>
+      <p>{{this.book.author}}</p>
+      <form action="/private/{{this._id}}/retornado" method="post">
+        <button>Retornar</button>
+      </form>
+    {{/each}}
+  </div>
+
+  <div>
+    <h3>Libros leídos</h3>
+    {{#each this.leidoBooks}}
+      {{! bucle para los libros dentro de la propiedad book }}
+      <img
+        src="{{this.book.image}}"
+        alt="{{this.book.title}}-img"
+        width="100px"
+      />
+      <p>{{this.book.title}}</p>
+      <p>{{this.book.author}}</p>
+    {{/each}}
+  </div>
 
 </div>
