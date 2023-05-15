@@ -22,7 +22,12 @@ catch(error){
 
 router.get("/search-list", async(req, res, next)=>{
     try{
-        const searchBook = await Book.findOne({title: req.query.title},{author})
+        const searchBook = await Book.findOne({title: req.query.title, author: req.query.author})
+        console.log(searchBook)
+        res.render("book/search-list",{
+            searchBook
+            
+        })
 
     }
     catch(error){
