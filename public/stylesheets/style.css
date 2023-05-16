@@ -130,6 +130,7 @@ footer{
   font-weight: bold;
   border: none;
 }
+
 .añadir-btn button:hover {
   background-color: rgb(8, 204, 178);
 }
@@ -171,9 +172,13 @@ footer{
   width: 250px;
   display: flex;
   flex-direction: column;
-  align-items: center;
- 
-  gap: 20px;
+  align-items: center; 
+  gap: 10px;
+  background-color: #E8F8F5;
+  -webkit-box-shadow: 4px 4px 13px 2px rgba(0,0,0,0.52); 
+  box-shadow: 4px 4px 13px 2px rgba(0,0,0,0.52);
+  border-radius: 25px;
+  padding: 15px;
   
 }
 
@@ -182,7 +187,7 @@ footer{
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 40px;
   margin-top: 30px;
 }
 
