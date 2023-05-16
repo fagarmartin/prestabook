@@ -6,26 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{appTitle}}</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+     <script src="https://kit.fontawesome.com/b8e43a0d7b.js" crossorigin="anonymous"></script>
   </head>
   <body>
+   
     {{#if this.isUserActive}}
-    <nav>
-      <a href="/">Home</a>
-
-      
-        <a href="/auth/logout">Cerrar sesión</a>
-        <br />
-        <a href="/private/profile">Perfil</a>
-        <br />
+    <nav class="nav-bar">
+       <div class="nav-bar-left">
+          <a href="/"><i class="fa-solid fa-house-chimney" style="color: white;"></i>Home</a>   
+          <a href="/private/profile"><i class="fa-solid fa-user"></i>Perfil</a>
+               
+          
+       </div>
+       <div class="nav-bar-right">
           <form action="/book/search-list" method="get">
         <input
           type="text"
           name="datosBusqueda"
           placeholder="Busca por titulo, autor o género"
         />
-        <button>Buscar</button>
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
       </form>
-     
+       <a href="/auth/logout"><i class="fa-solid fa-door-open" style="color: white;"></i>Cerrar sesión</a>
+     </div>
         {{!-- <a href="/auth/login">Login</a>
         <a href="/auth/signup">Registro</a> --}}
 
@@ -33,10 +37,10 @@
 
     </nav>
 {{#if this.isAdminActive}}
-    <nav>
-      <a href="/admin/index-admin">Home</a>
-      <a href="/admin/create">Añadir Libro</a>
-      <a href="/auth/logout">Cerrar sesión</a>
+    <nav class="nav-bar-admin">
+      <a href="/admin/index-admin"><i class="fa-solid fa-house-chimney" style="color: white;"></i>Home</a>
+      <a href="/admin/create"><i class="fa-solid fa-book" style="color: white;"></i>Añadir Libro</a>
+      <a href="/auth/logout"><i class="fa-solid fa-door-open" style="color: white;"></i>Cerrar sesión</a>
       
     </nav>
 {{/if}}
