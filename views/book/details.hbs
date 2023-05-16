@@ -1,0 +1,25 @@
+<div class="container-general">
+  <h4 class="title-detalles">{{this.bookDetails.title}}</h4>
+  <div class="imagen-portada">
+    <img src="{{this.bookDetails.image}}" alt="Portada libro" />
+  </div>
+  <div class="container-detalles">
+    <h4 class="autor">{{this.bookDetails.author}}</h4>
+    <p>{{this.bookDetails.synopsis}}</p>
+    <div class="cajita-datos">
+    <h5>{{this.bookDetails.numPag}} páginas</h5>
+    <h4>{{this.bookDetails.genre}}</h4>
+    <h5>{{this.bookDetails.stock}} libros disponibles</h5>
+    </div>
+  </div>
+  <div class="container-btn">
+  <form action="/book/{{this.bookDetails._id}}/prestado" method="post">
+    {{#if this.bookDetails.stock}}
+      <button>Prestar</button>
+    {{else}}
+      <button disabled="disabled">Prestar</button>
+      <p style="color:red">No hay disponibilidad</p>
+    {{/if}}
+</div>
+  </form>
+</div>

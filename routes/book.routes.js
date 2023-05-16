@@ -12,7 +12,7 @@ router.get("/:id/details", async (req, res, next) => {
   
   try {
     const bookDetails = await Book.findById(req.params.id);
-    res.render("book/index", {
+    res.render("book/details", {
       bookDetails,
     });
   } catch (error) {
