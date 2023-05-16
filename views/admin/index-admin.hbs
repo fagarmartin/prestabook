@@ -1,22 +1,33 @@
-<div>
+ <h3>LISTA LIBROS</h3>
+<div class="container-row">
 
-  <h3>LISTA LIBROS</h3>
+ 
+ 
   {{!-- <a href="/admin/create"><button>Crear</button></a> --}}
+ 
   {{#each this.allBooks}}
-    <li>
+  <div class="container-details">
+    <div>
       <img src="{{this.image}}" alt="Portada libro" height="200px" />
-      <h4>{{this.title}}</h4>
+      </div>
 
+      <h4>{{this.title}}</h4>
       <h4>{{this.author}}</h4>
-      <h4>{{this.synopsis}}</h4>
+      {{!-- <h4>{{this.synopsis}}</h4> --}}
       <h5>{{this.numPag}} páginas</h5>
       <h4>{{this.genre}}</h4>
 
+      <div class="editar-borrar-btn">
+      <div class="edita-btn">
       <a href="/admin/{{this._id}}/edit"><button>Editar</button></a>
+      </div>
       <form action="/admin/{{this._id}}/delete" method="post">
+        <div  class="borrar-btn">
         <button>Borrar</button>
+      </div>
       </form>
-    </li>
+    </div>
+    </div>
   {{/each}}
 
 </div>
