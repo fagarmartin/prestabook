@@ -25,8 +25,8 @@ router.get("/search-list", async (req, res, next) => {
   try {
     //  const searchBook = await Book.findOne({title: req.query.title})
     const searchBook = await Book.find(    
-        // para poder buscar por titulo, genero o autor
-      { $or: [ {title: { $regex: req.query.datosBusqueda.toLowerCase()}}, {author: { $regex: req.query.datosBusqueda.toLowerCase()}},{genre: { $regex: req.query.datosBusqueda.toLowerCase()  }} ] }
+        // para poder buscar por titulo, genero o autor añadida una expresion regular para buscar por mayuscula o minuscula indistintamente
+      { $or: [ {title: { $regex: new RegExp( req.query.datosBusqueda.toLowerCase(), "i")}}, {author: { $regex:new RegExp( req.query.datosBusqueda.toLowerCase(), "i")}},{genre: { $regex:new RegExp( req.query.datosBusqueda.toLowerCase(), "i")}} ] }
     );
 
     console.log(searchBook);
