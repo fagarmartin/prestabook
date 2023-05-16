@@ -31,7 +31,7 @@ router.post("/:idPrestamo/retornado",async(req,res,next)=>{
         // const foundBook= await Book.findById(prestaBook.book) // encontrar el libro por la id de la propiedad book del prestamo
         await Book.findByIdAndUpdate(prestaBook.book,{$inc:{stock:1}})// suma uno al stock actual
             
-        res.redirect("/private/profile") //todo cambiar redireccion a la pagina de perfil de usuario        
+        res.redirect("/private/profile")       
        
      
       }

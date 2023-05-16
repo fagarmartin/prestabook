@@ -23,4 +23,19 @@ function isAdmin(req, res, next) {
     res.redirect("/");
   }
 }
-module.exports = { isLoggedIn, isUser, isAdmin };
+
+//para ocultar/ver la barra de navegacion del usuario o del admin
+function updateLocals(req, res, next) {
+  //crea una variable local para usar en el handlebars
+  if (req.session.user !== undefined) {
+    if (req.session.user.role === "admin") {
+      res.locals.isAdminActive = true;
+    } else if (req.session.user.role === "user") {
+      res.locals.isUserActive = true;
+    }
+  }
+
+  next();
+}
+
+module.exports = { isLoggedIn, isUser, isAdmin, updateLocals };

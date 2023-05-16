@@ -15,7 +15,10 @@
     <input type="password" name="password" placeholder="Introduzca Contraseña">
     
     <button class="login-btn">REGISTRO</button>
-    
+    <p class="not-member">
+      ¿Eres miembro?
+      <a href="/auth/login">Login</a>
+    </p>
      {{#if this.errorMessage}}
       <p style= "color: red" >{{this.errorMessage}}</p>
     {{/if}}

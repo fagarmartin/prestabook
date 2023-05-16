@@ -8,23 +8,38 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/auth/login">Login</a>
-    <a href="/auth/signup">Registro</a>
-    <a href="/auth/logout">Cerrar sesión</a>
-    <br>
-    <a href="/private/profile">Perfil</a>
-    <br>
+    {{#if this.isUserActive}}
+    <nav>
+      <a href="/">Home</a>
 
-    <form action="/book/search-list" method="get">
-       <input type="text" name="datosBusqueda" placeholder="Busca por titulo, autor o género">
+      
+        <a href="/auth/logout">Cerrar sesión</a>
+        <br />
+        <a href="/private/profile">Perfil</a>
+        <br />
+          <form action="/book/search-list" method="get">
+        <input
+          type="text"
+          name="datosBusqueda"
+          placeholder="Busca por titulo, autor o género"
+        />
         <button>Buscar</button>
-    </form>
+      </form>
+     
+        {{!-- <a href="/auth/login">Login</a>
+        <a href="/auth/signup">Registro</a> --}}
 
-  </nav>
-  
+      {{/if}}   
 
+    </nav>
+{{#if this.isAdminActive}}
+    <nav>
+      <a href="/admin/index-admin">Home</a>
+      <a href="/admin/create">Añadir Libro</a>
+      <a href="/auth/logout">Cerrar sesión</a>
+      
+    </nav>
+{{/if}}
     {{{body}}}
 
     <script src="/js/script.js"></script>

@@ -2,7 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 const Book = require("../models/Book.model.js");
-const { isUser, isLoggedIn } = require("../middlewares/auth.middlewares.js");
+const { isUser, isLoggedIn,updateLocals } = require("../middlewares/auth.middlewares.js");
+
+
+//para variables de ocultar los botones 
+router.use(updateLocals)
 
 // GET "/"=> renderiza la pagina principal
 router.get("/",isLoggedIn,isUser, async (req, res, next) => {
