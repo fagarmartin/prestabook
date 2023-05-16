@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap");
 
 /* LOGIN Y SIGN UP*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Zilla Slab', serif;
+  font-family: "Zilla Slab", serif;
   text-decoration: none;
 }
 .superbody {
@@ -38,7 +38,6 @@
   outline: none;
 }
 
-
 button.login-btn {
   padding: 8px;
   border-radius: 8px;
@@ -66,67 +65,65 @@ p {
   font-style: italic;
   font-weight: bold;
 }
-a{
+a {
   color: rgb(5, 211, 183);
 }
-footer{
+footer {
   color: white;
 }
 
 /*  FORMULARIO DE CREAR LIBROS */
 
-.input-form{
+.input-form {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   padding: 10px 20px;
-
-  
 }
-.create-form{
+.create-form {
   margin: 100px auto;
   padding: 20px;
   width: 550px;
-  background-color: rgba(215, 219, 221,0.7  );
-  border-radius: 20px;  
- 
+  background-color: rgba(215, 219, 221, 0.7);
+  border-radius: 20px;
 }
-.create-form input,select{
+.create-form input,
+select {
   height: 30px;
   font-size: 1.2em;
   border-radius: 8px;
-  border-color:rgba(211, 211, 211, 0.596);
+  border-color: rgba(211, 211, 211, 0.596);
 }
-.create-form select{
-  border-color:rgba(129, 129, 129, 0.596);
+.create-form select {
+  border-color: rgba(129, 129, 129, 0.596);
 }
-.create-form textarea{
+.create-form textarea {
   font-size: 1.2em;
   border-radius: 8px;
-  border-color:rgba(129, 129, 129, 0.596);
+  border-color: rgba(129, 129, 129, 0.596);
 }
 
-.create-form label{
+.create-form label {
   font-size: 1.5em;
 }
 
-.create-form h3{
-  color:rgb(1, 63, 55);
+.create-form h3 {
+  color: rgb(1, 63, 55);
   text-align: center;
   font-size: 1.8em;
   padding: 40px 0 40px 0;
-} 
-.añadir-btn{
+}
+.añadir-btn {
   width: 100px;
   margin: auto;
 }
-.añadir-btn button{
+.añadir-btn button {
   width: 120px;
   height: 50px;
-  font-size: 1.2em;  
+  font-size: 1.2em;
   border-radius: 8px;
   background-color: rgb(45, 241, 215);
   cursor: pointer;
-  color:rgb(1, 63, 55);
+  color: rgb(1, 63, 55);
   font-weight: bold;
   border: none;
 }
@@ -136,53 +133,70 @@ footer{
 }
 
 /*formulario editar/borrar*/
-.delete-form-btn, .edita-form-btn{
-   margin: auto;
+.delete-form-btn,
+.edita-form-btn {
+  margin: auto;
   width: 150px;
   padding: 20px;
 }
-.delete-form-btn button{
+.delete-form-btn button {
   background-color: rgb(255, 23, 68);
   width: 120px;
   height: 50px;
-  font-size: 1.2em;  
+  font-size: 1.2em;
   border-radius: 8px;
   cursor: pointer;
-  color:rgb(1, 63, 55);
+  color: rgb(1, 63, 55);
   font-weight: bold;
   border: none;
- 
 }
 
-
-.edita-form-btn button{
+.edita-form-btn button {
   background-color: rgb(45, 241, 215);
   width: 120px;
   height: 50px;
-  font-size: 1.2em;  
+  font-size: 1.2em;
   border-radius: 8px;
   cursor: pointer;
-  color:rgb(1, 63, 55);
+  color: rgb(1, 63, 55);
   font-weight: bold;
   border: none;
 }
 
 /* VISTA HOME ADMIN*/
-.container-details{
+.container-details {
   width: 250px;
+  height: 350px;
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
+  justify-content: flex-end;
   gap: 10px;
-  background-color: #E8F8F5;
-  -webkit-box-shadow: 4px 4px 13px 2px rgba(0,0,0,0.52); 
-  box-shadow: 4px 4px 13px 2px rgba(0,0,0,0.52);
+  background-color: #e8f8f5;
+  background-size: cover;
+  -webkit-box-shadow: 4px 4px 13px 2px rgba(0, 0, 0, 0.52);
+  box-shadow: 4px 4px 13px 2px rgba(0, 0, 0, 0.52);
   border-radius: 25px;
   padding: 15px;
-  
 }
+.card-info {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.514);
+  border-radius: 20px;
+  padding: 20px 20px 5px 20px;
+ 
+}
+.card-title{
 
-.container-row{
+}
+.card-text{
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+.container-row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -191,27 +205,28 @@ footer{
   margin-top: 30px;
 }
 
-.editar-borrar-btn{
+.editar-borrar-btn {
   display: flex;
   flex-direction: row;
   gap: 20px;
 }
-.edita-btn button, .borrar-btn button{
+.edita-btn button,
+.borrar-btn button {
   width: 60px;
   height: 30px;
   border-radius: 5px;
 }
-.borrar-btn button{
-background-color: rgb(255, 23, 68);
-cursor: pointer;
-  color:white;
+.borrar-btn button {
+  background-color: rgb(255, 23, 68);
+  cursor: pointer;
+  color: white;
   font-weight: bold;
   border: none;
 }
-.edita-btn button{
-  background-color: rgb(18, 104, 93) ;
+.edita-btn button {
+  background-color: rgb(18, 104, 93);
   cursor: pointer;
-  color:white;
+  color: white;
   font-weight: bold;
   border: none;
 }
