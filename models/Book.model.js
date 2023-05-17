@@ -28,8 +28,7 @@ const bookSchema = new Schema({
   likes: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      unique: true,
+      ref: "User"     
     },
   ],
   // quantity: Number,
