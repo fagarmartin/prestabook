@@ -51,7 +51,18 @@ router.post("/create", uploader.single("image"), async (req, res, next) => {
 router.get("/:id/edit",  async (req, res, next) => {
   try {
     const bookDetails = await Book.findById(req.params.id);
-    res.render("admin/edit", { bookDetails });
+    const listGenre=[{genre:"Romantica"},{genre:"Terror"},{genre:"Novela negra"},{genre:"Narrativa"},{genre:"Historica"},{genre:"Poesia"},{genre:"Ficcion"}]
+    listGenre.forEach(eachGenre => {
+      // crea una propiedad en el array de generos de es seleccionado si coincide con el libro
+      if(eachGenre.genre===bookDetails.genre)
+      {
+        eachGenre.isSelected=true // crea la propiedad en el objecto que sea igual al del libro
+        
+      }
+    });   
+  // console.log(listGenre)
+
+    res.render("admin/edit", { bookDetails ,listGenre});
   } catch (error) {
     next(error);
   }

@@ -13,9 +13,15 @@ router.get("/:id/details", async (req, res, next) => {
   try {
 
     const bookDetails = await Book.findById(req.params.id);
+   // bookDetails.likesCounter=bookDetails.likes.length
+    const cloneBooks=JSON.parse(JSON.stringify(bookDetails))
+    //para guardar la cantidad de likes que tiene el libro
+    cloneBooks.likesCounter=cloneBooks.likes.length
+
+   // console.log(bookDetails)
 
     res.render("book/details", {
-      bookDetails,
+      bookDetails:cloneBooks,
     });
   } catch (error) {
     next(error);
@@ -72,16 +78,9 @@ router.post("/:id/prestado", async(req, res, next)=>{
 //POST "/book/:id/like" => recoge los datos del me gusta para añadirlo a la array de like de Book
 router.post("/:id/like",async(req,res,next)=>{
   try{
-     //const booksLike = await Book.findById(req.params.id)
-     
-    //  if( booksLike.likes.includes(req.session.user._id)=== false){
-    //     booksLike.likes.push(req.session.user._id)
-    //  await booksLike.save()
-     
-    
-    //  }
-    //  return
-     const booksLike=await Book.findByIdAndUpdate(req.params.id,{$push: {likes: req.session.user._id}},{new:true})
+
+    // añade un usuario al array like de books y checkea que no este duplicado
+     const booksLike=await Book.findByIdAndUpdate(req.params.id,{$addToSet: {likes: req.session.user._id}},{new:true})
     console.log(booksLike)
     res.redirect("/")
   }
@@ -91,5 +90,20 @@ router.post("/:id/like",async(req,res,next)=>{
   }
 })
 
+
+//POST "/book/:id/nolike" => recoge los datos del me gusta para quitarlo a la array de like de Book
+router.post("/:id/nolike",async(req,res,next)=>{
+  try{
+
+    // añade un usuario al array like de books y checkea que no este duplicado
+     const booksNoLike=await Book.findByIdAndUpdate(req.params.id,{$pull: {likes: req.session.user._id}},{new:true})
+    console.log(booksNoLike)
+    res.redirect("/")
+  }
+  catch(error)
+  {
+    next(error)
+  }
+})
 
 module.exports = router;

@@ -1,54 +1,85 @@
-<div  class="create-form">
+<div class="admin-edit-forms">
 
-<h3>Formulario para Editar</h3>
+<div class="create-form">
 
-<form action="/admin/{{this.bookDetails._id}}/edit" method="post" >
-{{!--enctype="multipart/form-data"--}} 
-  {{!-- <label for="image">Portada</label>
-   
-   <input type="file" name="image" value="{{this.bookDetails.image}}" required> --}}
+  <h3>Formulario para Editar</h3>
+
+  <form action="/admin/{{this.bookDetails._id}}/edit" method="post">
+
     <div class="input-form">
-    <label for="title">Título</label>
-    <input type="text" name="title" value="{{this.bookDetails.title}}" required />
+      <label for="title">Título</label>
+      <input
+        type="text"
+        name="title"
+        value="{{this.bookDetails.title}}"
+        required
+      />
     </div>
     <div class="input-form">
-     <label for="author">Autor</label>
-    <input type="text" name="author" value="{{this.bookDetails.author}}" required />
+      <label for="author">Autor</label>
+      <input
+        type="text"
+        name="author"
+        value="{{this.bookDetails.author}}"
+        required
+      />
     </div>
     <div class="input-form">
- <label for="genre">Género</label>
-    <select name="genre" required>
-      <option value="">Seleccione una opción</option>
-      <option value="Romantica">Romántica</option>
-      <option value="Terror">Terror</option>
-      <option value="Novela negra">Novela negra</option>
-      <option value="Narrativa">Narrativa</option>
-      <option value="Historica">Historica</option>
-      <option value="Poesia">Poesia</option>
-      <option value="Ficcion">Ficcion</option>
-    </select>
+      <label for="genre">Género</label>
+      <select name="genre" required>
+        {{#each this.listGenre}}
+          {{! lista de objetos creada en la ruta }}
+          {{#if this.isSelected}}
+            <option value="{{this.genre}}" selected>{{this.genre}}</option>
+          {{else}}
+            <option value="{{this.genre}}">{{this.genre}}</option>
+          {{/if}}
+        {{/each}}
+
+      </select>
+    </div>
+    <div class="input-form">
+      <label for="numPag">Número de páginas</label>
+      <input
+        type="number"
+        name="numPag"
+        value="{{this.bookDetails.numPag}}"
+        required
+      />
+    </div>
+    <div class="input-form">
+      <label for="synopsis">Argumento</label>
+      <textarea name="synopsis" rows="4" cols="50">
+        {{this.bookDetails.synopsis}}
+      </textarea>
+    </div>
+    <div class="edita-form-btn">
+      <button>Actualizar</button>
+    </div>
+  </form>
+
+  <form action="/admin/{{this.bookDetails._id}}/delete" method="post">
+    <div class="delete-form-btn">
+      <button>Borrar</button>
+    </div>
+  </form>
+
 </div>
-<div class="input-form">
-<label for="numPag">Número de páginas</label>
-    <input type="number" name="numPag" value="{{this.bookDetails.numPag}}" required/>
-    </div>
-    <div class="input-form">
-    <label for="synopsis">Argumento</label>
-    <textarea name="synopsis" rows="4" cols="50">
-      {{this.bookDetails.synopsis}}
-    </textarea>
-  </div>
-  <div class="edita-form-btn">
-    <button  >Actualizar</button>
-    </div>
+<div class="edit-img-form">
+  <h3>Formulario para Editar Portada</h3>
+  <form
+    action="/admin/{{this.bookDetails._id}}/edit-img"
+    method="post"
+    enctype="multipart/form-data"
+  >
+    <label for="image">Portada</label>
+
+    <input
+      type="file"
+      name="image"
+      value="{{this.bookDetails.image}}"
+      required
+    />
   </form>
-  
-  <form  action="/admin/{{this.bookDetails._id}}/delete" method="post">
-      <div class="delete-form-btn">
-        <button>Borrar</button>
-        </div>
-  </form>
-
-
-
+</div>
 </div>

@@ -79,15 +79,32 @@ footer {
   flex-direction: column;
   padding: 10px 20px;
 }
+
+
 .create-form {
-  margin: 100px auto;
+ 
   padding: 20px;
   width: 550px;
   background-color: rgba(215, 219, 221, 0.7);
   border-radius: 20px;
 }
+.admin-edit-forms{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap:50px;
+}
+.edit-img-form{
+  
+  padding: 20px;
+  width: 550px;
+  height: 200px;
+  background-color: rgba(215, 219, 221, 0.7);
+  border-radius: 20px;
+}
 .create-form input,
-select {
+select ,.edit-img-form input,select {
   height: 30px;
   font-size: 1.2em;
   border-radius: 8px;
@@ -102,11 +119,11 @@ select {
   border-color: rgba(129, 129, 129, 0.596);
 }
 
-.create-form label {
+.create-form label,.edit-img-form label {
   font-size: 1.5em;
 }
 
-.create-form h3 {
+.create-form h3,.edit-img-form h3 {
   color: rgb(1, 63, 55);
   text-align: center;
   font-size: 1.8em;
@@ -133,6 +150,9 @@ select {
 }
 
 /*formulario editar/borrar*/
+
+
+
 .delete-form-btn,
 .edita-form-btn {
   margin: auto;
@@ -162,6 +182,8 @@ select {
   font-weight: bold;
   border: none;
 }
+
+
 
 /* VISTA HOME ADMIN*/
 .container-details {
@@ -356,6 +378,10 @@ i{
   font-size: 30px;
   font-weight: bolder;
   text-decoration: underline;
+}
+
+.like-text{
+  color:rgb(65, 65, 185);
 }
 
 /* vista perfil usuario*/

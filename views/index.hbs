@@ -1,24 +1,28 @@
 <div>
   <h3>PRESTABOOK</h3>
-  
+
   {{#each this.cloneBooks}}
     <div>
-     <a href="/book/{{this._id}}/details"><img src="{{this.image}}" alt="Portada libro" height="200px" /></a> 
+      <a href="/book/{{this._id}}/details"><img
+          src="{{this.image}}"
+          alt="Portada libro"
+          height="200px"
+        /></a>
       <h4>{{this.title}}</h4>
       <h4>{{this.author}}</h4>
-      <form action="/book/{{this._id}}/like" method="post">
+
       {{#if this.isLikes}}
-     <button disabled="disabled"><i class="fa-solid fa-heart" style="color:red"></i></button> 
-     {{else}}
-      <button ><i class="fa-regular fa-heart" style="color:red"></i></button>
-      
+        <form action="/book/{{this._id}}/nolike" method="post">
+          <button><i class="fa-solid fa-heart" style="color:red"></i></button>
+        </form>
+      {{else}}
+        <form action="/book/{{this._id}}/like" method="post">
+          <button><i class="fa-regular fa-heart" style="color:red"></i></button>
+        </form>
       {{/if}}
-      
-    </form>
-   
+
       <p>Tiene {{this.likesCounter}} likes</p>
     </div>
   {{/each}}
-  
 
 </div>
