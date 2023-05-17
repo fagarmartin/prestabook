@@ -11,7 +11,9 @@ const Prestamo = require("../models/Prestamo.model.js");
 router.get("/:id/details", async (req, res, next) => {
   
   try {
+
     const bookDetails = await Book.findById(req.params.id);
+
     res.render("book/details", {
       bookDetails,
     });
@@ -70,7 +72,16 @@ router.post("/:id/prestado", async(req, res, next)=>{
 //POST "/book/:id/like" => recoge los datos del me gusta para añadirlo a la array de like de Book
 router.post("/:id/like",async(req,res,next)=>{
   try{
-    const booksLike=await Book.findByIdAndUpdate(req.params.id,{like: req.session.user._id},{new:true})
+     //const booksLike = await Book.findById(req.params.id)
+     
+    //  if( booksLike.likes.includes(req.session.user._id)=== false){
+    //     booksLike.likes.push(req.session.user._id)
+    //  await booksLike.save()
+     
+    
+    //  }
+    //  return
+     const booksLike=await Book.findByIdAndUpdate(req.params.id,{$push: {likes: req.session.user._id}},{new:true})
     console.log(booksLike)
     res.redirect("/")
   }

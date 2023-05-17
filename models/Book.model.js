@@ -15,13 +15,13 @@ const bookSchema = new Schema({
   genre: {
     type: String,
     enum: [
-      "romantica",
-      "terror",
-      "novela negra",
-      "narrativa",
-      "historica",
-      "poesia",
-      "ficcion",
+      "Romantica",
+      "Terror",
+      "Novela negra",
+      "Narrativa",
+      "Historica",
+      "Poesia",
+      "Ficcion",
     ],
     required: true,
   },
@@ -29,6 +29,7 @@ const bookSchema = new Schema({
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
+      unique: true,
     },
   ],
   // quantity: Number,

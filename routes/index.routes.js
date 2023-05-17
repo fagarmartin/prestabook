@@ -11,11 +11,26 @@ router.use(updateLocals)
 // GET "/"=> renderiza la pagina principal
 router.get("/",isLoggedIn,isUser, async (req, res, next) => {
   try{
-    const allBooks= await Book.find().select({title : 1, author:1, image: 1}).sort({title: 1})
+    const allBooks= await Book.find().select({title : 1, author:1, image: 1, likes: 1}).sort({title: 1})
+    //hacemos un clon de la lista de libros 
+    const cloneBooks = JSON.parse(JSON.stringify(allBooks))
+    cloneBooks.forEach(eachbook => {
+     // console.log(eachbook.likes)
 
+     // chekea los libros que tienen likes de un usuario activo, creamos una propiedad nueva: isLikes
+      if(eachbook.likes.includes(req.session.user._id) === true ){
+        eachbook.isLikes = true
+      }
+      eachbook.likesCounter = eachbook.likes.length
+    });
+
+
+   // console.log(cloneBooks)
+   // pasamos como objeto el clone de allBooks
   res.render("index",{
-    allBooks
+   cloneBooks
   });
+
   }
 catch(error){
   next(error)
