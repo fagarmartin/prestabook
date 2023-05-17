@@ -28,7 +28,7 @@ router.get("/:id/details", async (req, res, next) => {
   }
 });
 
-
+// GET "/search-list" => renderiza la pagina de busqueda
 router.get("/search-list", async (req, res, next) => {
   try {
     //  const searchBook = await Book.findOne({title: req.query.title})
@@ -36,10 +36,20 @@ router.get("/search-list", async (req, res, next) => {
         // para poder buscar por titulo, genero o autor añadida una expresion regular para buscar por mayuscula o minuscula indistintamente
       { $or: [ {title: { $regex: new RegExp( req.query.datosBusqueda.toLowerCase(), "i")}}, {author: { $regex:new RegExp( req.query.datosBusqueda.toLowerCase(), "i")}},{genre: { $regex:new RegExp( req.query.datosBusqueda.toLowerCase(), "i")}} ] }
     );
+    const cloneBooks = JSON.parse(JSON.stringify(searchBook))
+    cloneBooks.forEach(eachbook => {
+     // console.log(eachbook.likes)
 
-    console.log(searchBook);
-    res.render("book/search-list", {
-      searchBook,
+     // chekea los libros que tienen likes de un usuario activo, creamos una propiedad nueva: isLikes
+      if(eachbook.likes.includes(req.session.user._id) === true ){
+        eachbook.isLikes = true
+      }
+      eachbook.likesCounter = eachbook.likes.length
+    });
+    //console.log(searchBook);
+    //hemos usado la misma vista creada en index 
+    res.render("index", {
+      cloneBooks
     });
 
    
