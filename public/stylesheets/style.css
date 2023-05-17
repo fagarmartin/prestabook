@@ -80,7 +80,11 @@ footer {
   padding: 10px 20px;
 }
 
-
+.flex-center{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
 .create-form {
  
   padding: 20px;
@@ -211,6 +215,9 @@ select ,.edit-img-form input,select {
   border-radius: 20px;
   padding: 20px 20px 5px 20px;
 }
+.link-container{
+  color:black;
+}
 .card-title {
   border-top: 2px solid rgb(99, 98, 98);
   border-bottom: 2px solid rgb(99, 98, 98);
@@ -219,10 +226,10 @@ select ,.edit-img-form input,select {
   margin-bottom: 15px;
   font-size: 1.2em;
 }
-h3.admin-list-ttitle {
+
+h3.admin-list-title {
   text-align: center;
-  font-size: 2.2em;
-  font-style: italic;
+  font-size: 2.2em;  
   margin: 40px 0 60px 0;
 }
 .container-row {
@@ -268,7 +275,7 @@ h3.admin-list-ttitle {
 
 /*BARRA DE NAVEGACION*/
 .nav-bar {
-  height: 60px;
+ 
   background-color: black;
   display: flex;
   flex-direction: row;
@@ -383,6 +390,8 @@ i{
 
 .like-text{
   color:rgb(65, 65, 185);
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 /* vista perfil usuario*/
@@ -486,3 +495,21 @@ i{
   margin-bottom: 30px;
   
 }
+
+/* HOME USUARIO */
+
+.like-text-index{
+  font-weight: 1000;
+  font-size: 1.2em;
+}
+.heart-btn{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.fa-heart:hover{
+
+  color:darkred !important;
+
+}
+/* ADMIN VISTA DE PRESTAMOS*/

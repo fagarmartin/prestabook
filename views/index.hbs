@@ -1,28 +1,32 @@
-<div>
-  <h3>PRESTABOOK</h3>
+
+<div class="container-row">
 
   {{#each this.cloneBooks}}
-    <div>
-      <a href="/book/{{this._id}}/details"><img
-          src="{{this.image}}"
-          alt="Portada libro"
-          height="200px"
-        /></a>
-      <h4>{{this.title}}</h4>
-      <h4>{{this.author}}</h4>
+   <a class="link-container" href="/book/{{this._id}}/details" >
+    <div class="container-details" style="background-image:url({{this.image}})">
+    
+      <div class="card-info">
+        <div class="card-text" >
+          <h4 class="card-title">{{this.title}}</h4>
+          <h4>{{this.author}}</h4>
+        </div>
+        {{#if this.isLikes}}
+          <form action="/book/{{this._id}}/nolike" method="post">
+            <button class="heart-btn"><i class="fa-solid fa-heart fa-xl" style="color:red"></i></button>
+          </form>
+        {{else}}
+          <form action="/book/{{this._id}}/like" method="post">
+            <button class="heart-btn"><i
+                class="fa-regular fa-heart fa-xl"
+                style="color:red"
+              ></i></button>
+          </form>
+        {{/if}}
 
-      {{#if this.isLikes}}
-        <form action="/book/{{this._id}}/nolike" method="post">
-          <button><i class="fa-solid fa-heart" style="color:red"></i></button>
-        </form>
-      {{else}}
-        <form action="/book/{{this._id}}/like" method="post">
-          <button><i class="fa-regular fa-heart" style="color:red"></i></button>
-        </form>
-      {{/if}}
-
-      <p>Tiene {{this.likesCounter}} likes</p>
+        <p class="like-text-index">{{this.likesCounter}} likes</p>
+      </div>
     </div>
+    </a>
   {{/each}}
 
 </div>
