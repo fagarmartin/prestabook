@@ -1,7 +1,6 @@
 <div>
 
-  <h3>Página privada del usuario</h3>
-  <h3>En préstamo</h3>
+  <h3 class="tituloindexuser">LIBROS EN PRESTAMO</h3>
   <div class="container-cont">
 
     {{#each this.prestadoBooks}}
@@ -15,26 +14,35 @@
           <p>{{this.book.author}}</p>
           <div class="btn">
             <form action="/private/{{this._id}}/retornado" method="post">
+              <div class="retorna-btn">
               <button>Retornar</button>
+              </div>
             </form>
           </div>
         </div>
       </div>
     {{/each}}
   </div>
-
-  <div class="container-leido">
-    <h3>Libros leídos</h3>
+<h3 class="tituloindexuser">LIBROS LEIDOS</h3>
+  <div class="container-cont">
+    
     {{#each this.leidoBooks}}
+     <div class="card">
       {{! bucle para los libros dentro de la propiedad book }}
+       <div class="face front">
       <img
         src="{{this.book.image}}"
         alt="{{this.book.title}}-img"
         width="100px"
       />
+      </div>
+      <div class="face back">
       <p>{{this.book.title}}</p>
       <p>{{this.book.author}}</p>
+      </div>
+      </div>
     {{/each}}
+    
   </div>
 
 </div>

@@ -6,7 +6,7 @@ const uploader = require("../middlewares/cloudinary.middleware.js");
 const { isAdmin } = require("../middlewares/auth.middlewares.js");
 
 //GET "/admin/index-admin" => renderiza la vista de la pagina de administrador
-router.get("/index-admin", isAdmin, async (req, res, next) => {
+router.get("/index-admin", async (req, res, next) => {
   try {
     const allBooks = await Book.find();
     res.render("admin/index-admin", {
@@ -81,7 +81,7 @@ router.post("/:id/edit",  async (req, res, next) => {
         numPag,
         author,
         genre,
-        // image: req.file.path,
+        
       },
       { new: true }
     );
@@ -90,6 +90,23 @@ router.post("/:id/edit",  async (req, res, next) => {
     next(error);
   }
 });
+
+// POST "/admin/:id/edit-img"=> recibir los datos de la imagen del formulario de editar
+router.post("/:id/edit-img", uploader.single("image"), async (req, res, next) => {
+  if (req.file === undefined) {
+    next("no hay imagen");
+    return; 
+  }
+  try{
+    const editImage = await Book.findByIdAndUpdate(req.params.id,{
+      image: req.file.path
+    }, {new: true })
+    res.redirect("/admin/index-admin")
+  }
+  catch(error){
+    next(error)
+  }
+})
 
 //POST "/admin/:id/delete" => borrar libro por su id
 router.post("/:id/delete",  async (req, res, next) => {
