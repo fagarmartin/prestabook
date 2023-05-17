@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Book = require("../models/Book.model.js");
+const Prestamo=require("../models/Prestamo.model.js")
 const uploader = require("../middlewares/cloudinary.middleware.js");
 const { isAdmin } = require("../middlewares/auth.middlewares.js");
 
@@ -17,7 +18,7 @@ router.get("/index-admin", isAdmin, async (req, res, next) => {
 });
 
 //GET "/admin/create" => renderiza la vista del formulario de crear libros
-router.get("/create", isAdmin, (req, res, next) => {
+router.get("/create",  (req, res, next) => {
   res.render("admin/create");
 });
 
@@ -47,7 +48,7 @@ router.post("/create", uploader.single("image"), async (req, res, next) => {
 
 //todo en la vista seleccionar el genero que esté en la base de datos
 //GET "/admin/:id/edit" => renderiza la vista del formulario
-router.get("/:id/edit", isAdmin, async (req, res, next) => {
+router.get("/:id/edit",  async (req, res, next) => {
   try {
     const bookDetails = await Book.findById(req.params.id);
     res.render("admin/edit", { bookDetails });
@@ -58,7 +59,7 @@ router.get("/:id/edit", isAdmin, async (req, res, next) => {
 
 //POST "/admin/:id/edit" => recibe la informacion del formulario de editar
 //  uploader.single("image"),
-router.post("/:id/edit", isAdmin, async (req, res, next) => {
+router.post("/:id/edit",  async (req, res, next) => {
   const { title, synopsis, numPag, author, genre } = req.body;
   try {
     const editBooks = await Book.findByIdAndUpdate(
@@ -80,7 +81,7 @@ router.post("/:id/edit", isAdmin, async (req, res, next) => {
 });
 
 //POST "/admin/:id/delete" => borrar libro por su id
-router.post("/:id/delete", isAdmin, async (req, res, next) => {
+router.post("/:id/delete",  async (req, res, next) => {
   try {
     const bookDeleted = await Book.findByIdAndDelete(req.params.id);
     res.redirect("/admin/index-admin");
@@ -88,5 +89,19 @@ router.post("/:id/delete", isAdmin, async (req, res, next) => {
     next(error);
   }
 });
+
+//GET "/admin/list-status" => renderiza la lista de libros prestados y retornados
+router.get("/list-status",async(req,res,next)=>{
+
+  try{
+      const searchStatus= await Prestamo.find({status:"Prestado"}).sort({user:1}).populate("book").populate("user")   
+      console.log(searchStatus)
+      res.render("admin/list-status",{searchStatus})
+  }
+  catch(error)
+  {
+    next(error)
+  }
+})
 
 module.exports = router;

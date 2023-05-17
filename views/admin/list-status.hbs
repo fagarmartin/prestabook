@@ -1,0 +1,14 @@
+<div>
+  <h3>Lista de libros prestados</h3>
+
+  {{#each this.searchStatus}}
+
+    <img src="{{this.book.image}}" alt="portada-libro" width="200px" />
+    <h3>{{this.book.title}}</h3>
+    <p>{{this.book.author}}</p>
+    <p>Prestado a : {{this.user.username}}</p>
+    <p>Libros en Stock : {{this.book.stock}}</p>
+    
+  {{/each}}
+
+</div>

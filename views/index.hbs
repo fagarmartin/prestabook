@@ -2,11 +2,14 @@
   <h3>PRESTABOOK</h3>
   
   {{#each this.allBooks}}
-    <li>
+    <div>
      <a href="/book/{{this._id}}/details"><img src="{{this.image}}" alt="Portada libro" height="200px" /></a> 
       <h4>{{this.title}}</h4>
       <h4>{{this.author}}</h4>
-    </li>
+      <form action="/book/{{this._id}}/like" method="post">
+      <button>Me gusta</button>
+      </form>
+    </div>
   {{/each}}
 
 </div>

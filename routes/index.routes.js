@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Book = require("../models/Book.model.js");
-const { isUser, isLoggedIn,updateLocals } = require("../middlewares/auth.middlewares.js");
+const { isUser, isLoggedIn,updateLocals,isAdmin } = require("../middlewares/auth.middlewares.js");
 
 
 //para variables de ocultar los botones 
@@ -29,7 +29,7 @@ router.use("/private",isLoggedIn,isUser,privateRouter)
 
 //rutas de acceso exclusivo de admin
 const adminRouter=require("./admin.routes")
-router.use("/admin",adminRouter)
+router.use("/admin",isAdmin,adminRouter)
 
 //rutas para los  libros
 const bookRouter=require("./book.routes")

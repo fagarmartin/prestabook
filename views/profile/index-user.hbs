@@ -5,28 +5,23 @@
   <div class="container-cont">
 
     {{#each this.prestadoBooks}}
-    <div class="card">
-      {{! bucle para los libros dentro de la propiedad book }}
-      <div class="face front">
-        <img
-          src="{{this.book.image}}"
-          alt="{{this.book.title}}-img"
-          
-        />
-      </div>
-      <div class="face back">
-        <p>{{this.book.title}}</p>
-        <p>{{this.book.author}}</p>
-        <div class="btn">
-          <form action="/private/{{this._id}}/retornado" method="post">
-            <button>Retornar</button>
-          </form>
+      <div class="card">
+        {{! bucle para los libros dentro de la propiedad book }}
+        <div class="face front">
+          <img src="{{this.book.image}}" alt="{{this.book.title}}-img" />
+        </div>
+        <div class="face back">
+          <p>{{this.book.title}}</p>
+          <p>{{this.book.author}}</p>
+          <div class="btn">
+            <form action="/private/{{this._id}}/retornado" method="post">
+              <button>Retornar</button>
+            </form>
+          </div>
         </div>
       </div>
-        </div>
     {{/each}}
-</div>
-
+  </div>
 
   <div class="container-leido">
     <h3>Libros leídos</h3>

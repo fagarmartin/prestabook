@@ -67,4 +67,18 @@ router.post("/:id/prestado", async(req, res, next)=>{
   }
 })
 
+//POST "/book/:id/like" => recoge los datos del me gusta para añadirlo a la array de like de Book
+router.post("/:id/like",async(req,res,next)=>{
+  try{
+    const booksLike=await Book.findByIdAndUpdate(req.params.id,{like: req.session.user._id},{new:true})
+    console.log(booksLike)
+    res.redirect("/")
+  }
+  catch(error)
+  {
+    next(error)
+  }
+})
+
+
 module.exports = router;
