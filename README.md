@@ -49,7 +49,7 @@ Profile: index-user.hbs
 Index.hbs
 Layout.hbs
 
-Trello
-Repositorio git
-Deploy
-Slices
+Trello : https://trello.com/w/prestabooks
+Repositorio git : https://github.com/redkouya/prestabook
+Deploy : https://prestabook.adaptable.app/
+Slices : https://docs.google.com/presentation/d/1kyn9inpcUTZSxeU9QhJzbrdMO5zNElAo5ZbnCY740Nw/edit#slide=id.p

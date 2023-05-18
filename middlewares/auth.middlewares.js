@@ -28,6 +28,7 @@ function isAdmin(req, res, next) {
 function updateLocals(req, res, next) {
   //crea una variable local para usar en el handlebars
   if (req.session.user !== undefined) {
+    res.locals.username = req.session.user.username; // guardar nombre del usuario para usarlo en su perfil
     if (req.session.user.role === "admin") {
       res.locals.isAdminActive = true;
     } else if (req.session.user.role === "user") {

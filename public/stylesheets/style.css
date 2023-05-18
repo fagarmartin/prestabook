@@ -377,6 +377,9 @@ h3.admin-list-title {
 	cursor: pointer;
 	
 }
+.user-name{
+  margin-left: 15px;
+}
 .heart-btn{
   cursor: pointer;
   background-color: transparent;
