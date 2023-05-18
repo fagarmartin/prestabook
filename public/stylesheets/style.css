@@ -297,8 +297,9 @@ h3.admin-list-title {
 }
 
 /*BARRA DE NAVEGACION*/
+
 .nav-bar {
- 
+  
   background-color: black;
   display: flex;
   flex-direction: row;
@@ -306,12 +307,13 @@ h3.admin-list-title {
   align-items: center;
   padding: 0 30px;
 }
+
 .nav-bar-right{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  width: 1000px;
+  
   
 }
  .nav-bar-right form{
@@ -328,13 +330,14 @@ h3.admin-list-title {
 	border-radius: 50px;
 	font-size: 20px;
 	border: 1px solid #3e0acf;
-	transition: all .7s ease;
+	transition: all .7s ease; 
+
 }
+
 ::placeholder {
 	color: grey;
 }
-.nav-bar-right button{
-  
+.nav-bar-right button{  
 	width: 50px;
 	height: 50px;
 	background: #807575;
@@ -344,22 +347,33 @@ h3.admin-list-title {
 	cursor: pointer;
 	
 }
+.heart-btn{
+  background-color: transparent;
+  border: none;
+}
 #boton-i{
   font-size: 25px;
 	color: white;
 	line-height: 40px;
-	transition: all .7s ease;
+	transition: all .7s ease; 
+ 
 }
-.nav-bar-right:hover input{
+/* .nav-bar-right:hover input{
   width: 350px;
-}
+} */
+
+ .nav-bar-right input:focus{
+  width: 350px;
+} 
+
+
 #boton-i:hover{
 	transform: rotate(-360deg);
 }
 
-.nav-bar-right button:hover{
+ .nav-bar-right button:hover{
 	background: #cc0000;
-}
+} 
 
 .nav-bar-admin {
   
