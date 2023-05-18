@@ -29,7 +29,7 @@
       <form class="comentario-form" action="/comentario/{{this.bookDetails._id}}/create" method="post">
   
       <label for="comentario">Deja tu comentario</label>
-        <textarea name="comentario" rows="4" cols="50" style="resize: none"></textarea>
+        <textarea name="comentario" rows="4" cols="50" style="resize: none" required></textarea>
         <div class="comentar-btn">
         <button>Comentar</button>
         {{#if this.errorMessage}}
