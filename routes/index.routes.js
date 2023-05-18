@@ -55,4 +55,8 @@ router.use("/book",isLoggedIn,isUser, bookRouter)
 const authRouter=require("./auth.routes")
 router.use("/auth",authRouter)
 
+//rutas para los comentarios de los libros
+const comentariosRouter=require("./comentario.routes.js")
+router.use("/comentario",isLoggedIn,isUser,comentariosRouter)
+
 module.exports = router;

@@ -3,6 +3,7 @@ const router = express.Router();
 
 const Book = require("../models/Book.model.js");
 const Prestamo = require("../models/Prestamo.model.js");
+const Comentario=require("../models/Comentario.model.js") // para listar los comentarios en la vista de detalles del libro
 // GET "/book/search-list" => renderiza la vista de buscar libro
 
 // GET "/book/:id"=> renderiza los detalles del libro
@@ -11,17 +12,20 @@ const Prestamo = require("../models/Prestamo.model.js");
 router.get("/:id/details", async (req, res, next) => {
   
   try {
-
-    const bookDetails = await Book.findById(req.params.id);
-   // bookDetails.likesCounter=bookDetails.likes.length
+    //likes
+    const bookDetails = await Book.findById(req.params.id);  
     const cloneBooks=JSON.parse(JSON.stringify(bookDetails))
     //para guardar la cantidad de likes que tiene el libro
     cloneBooks.likesCounter=cloneBooks.likes.length
 
-   // console.log(bookDetails)
-
+    //comentarios
+    const allComentarios=await Comentario.find({
+      //busca por la propiedad del modelo Comentario
+      book: req.params.id
+    }).populate("user") //para poder mostrar el nombre del usuario
+    console.log(allComentarios)
     res.render("book/details", {
-      bookDetails:cloneBooks,
+      bookDetails:cloneBooks, allComentarios
     });
   } catch (error) {
     next(error);

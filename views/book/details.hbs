@@ -23,4 +23,30 @@
     {{/if}}
 </div>
   </form>
+
+  <div >
+      <form class="comentario-form" action="/comentario/{{this.bookDetails._id}}/create" method="post">
+  
+      <label for="comentario">Deja tu comentario</label>
+        <textarea name="comentario" rows="4" cols="50" style="resize: none"></textarea>
+        <div class="comentar-btn">
+        <button>Comentar</button>
+        </div>
+      </form>
+      <div class="comentarios-list">
+         <h3>Comentarios</h3>
+         {{#each this.allComentarios}}
+          
+         <div class="comentario">
+        
+          <h4>{{this.user.username}}</h4> 
+        <p>
+          {{this.comentario}}
+        </p>
+         </div>    
+    {{/each}}
+
+    </div>
+
+</div>
 </div>

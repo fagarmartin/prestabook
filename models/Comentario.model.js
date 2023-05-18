@@ -3,11 +3,11 @@ const { Schema, model, default: mongoose } = require("mongoose");
 const comentariosSchema = new Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "user",
+    ref: "User",
   },
   book: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "book",
+    ref: "Book",
   },
 
   comentario: {
