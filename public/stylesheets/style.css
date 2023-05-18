@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 
 /* LOGIN Y SIGN UP*/
 * {
@@ -21,7 +22,7 @@
 .form-container {
   color: white;
   width: 500px;
-  background-color: rgba(255, 255, 255, 0.19);
+  background-color: rgba(0, 0, 0, 0.19);
   display: flex;
   margin: 5px;
   flex-direction: column;
@@ -42,15 +43,17 @@ button.login-btn {
   padding: 8px;
   border-radius: 8px;
   border: none;
-  font-weight: 500;
-  background-color: rgb(5, 211, 183);
-  color: rgba(0, 0, 0, 0.699);
+  font-weight: bold;
+  letter-spacing: 5px;
+  background-color: rgb(44, 163, 233);
+  color: white;
+  
   cursor: pointer;
   font-size: 15px;
 }
 
 button.login-btn:hover {
-  background-color: rgb(8, 204, 178);
+  background-color: rgb(31, 127, 182);
 }
 
 button.login-btn:active {
@@ -63,10 +66,21 @@ button.login-btn:active {
   color: whitesmoke;
   margin: 3px 0;
   font-style: italic;
+ 
+}
+
+.form-container a{
   font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.form-container h3{
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: rgb(31, 127, 182);
 }
 a {
-  color: rgb(5, 211, 183);
+  color: rgb(31, 127, 182);
 }
 footer {
   color: white;
@@ -303,14 +317,28 @@ h3.admin-list-title {
   background-color: black;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 0 30px;
+  min-height:70px ;
 }
-
+.nav-bar-left-admin{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.nav-bar-left{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
 .nav-bar-right{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
   
@@ -376,11 +404,13 @@ h3.admin-list-title {
 } 
 
 .nav-bar-admin {
-  
+  min-height: 70px;
   background-color: black;
   display: flex;
   flex-direction: row;  
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
   padding: 0 30px;
 }
 
@@ -591,6 +621,24 @@ padding: 10px 5px;
   
 }
 
-/* HOME USUARIO */
+a.nombre-web{
+  
+  font-family: 'Anton', sans-serif;  
+  letter-spacing: 5px;
+  
+  font-size: 35px;
+}
+a.nombre-web:hover{
+  text-decoration: none;
+}
 
+.h1-web-title{
+  font-size: 100px;
+  font-family: 'Anton', sans-serif;
+  color:black;
+  letter-spacing: 15px;
+}
 
+footer p{
+  color: rgb(31, 127, 182);
+}

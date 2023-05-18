@@ -14,6 +14,7 @@
     {{#if this.isUserActive}}
     <nav class="nav-bar">
        <div class="nav-bar-left">
+        <a class="nombre-web" href="/">PRESTABOOK</a>
           <a href="/"><i class="fa-solid fa-house-chimney" style="color: white;"></i>Home</a>   
           <a href="/private/profile"><i class="fa-solid fa-user"></i>Perfil</a>               
           
@@ -23,7 +24,7 @@
         <input
           type="text"
           name="datosBusqueda"
-          placeholder="Busca por titulo, autor o género"
+          placeholder="Busca por titulo, autor o género" autofocus
         />
         <button><i id="boton-i" class="fa-solid fa-magnifying-glass"></i></button>
       </form>
@@ -38,11 +39,15 @@
     </nav>
 {{#if this.isAdminActive}}
     <nav class="nav-bar-admin">
+      <div class="nav-bar-left-admin">
+        <a class="nombre-web" href="/">PRESTABOOK</a>
       <a href="/admin/index-admin"><i class="fa-solid fa-house-chimney" style="color: white;"></i>Home</a>
       <a href="/admin/create"><i class="fa-solid fa-book" style="color: white;"></i>Añadir Libro</a>
       <a href="/admin/list-status"><i class="fa-solid fa-book-atlas" style="color: white;"></i></i>Ver Préstamos</a>
+    </div>
+     <div >
       <a href="/auth/logout"><i class="fa-solid fa-door-open" style="color: white;"></i>Cerrar sesión</a>
-      
+      </div>
     </nav>
 {{/if}}
     {{{body}}}
