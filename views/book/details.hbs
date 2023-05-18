@@ -24,13 +24,17 @@
 </div>
   </form>
 
-  <div >
+  <div class="container-comentario-form">
       <form class="comentario-form" action="/comentario/{{this.bookDetails._id}}/create" method="post">
   
       <label for="comentario">Deja tu comentario</label>
         <textarea name="comentario" rows="4" cols="50" style="resize: none"></textarea>
         <div class="comentar-btn">
         <button>Comentar</button>
+        {{#if this.errorMessage}}
+          <p>{{this.errorMessage}}</p>
+        {{/if}}
+       
         </div>
       </form>
       <div class="comentarios-list">

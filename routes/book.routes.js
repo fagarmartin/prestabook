@@ -24,6 +24,8 @@ router.get("/:id/details", async (req, res, next) => {
       book: req.params.id
     }).populate("user") //para poder mostrar el nombre del usuario
     console.log(allComentarios)
+
+    
     res.render("book/details", {
       bookDetails:cloneBooks, allComentarios
     });
@@ -95,7 +97,7 @@ router.post("/:id/like",async(req,res,next)=>{
 
     // añade un usuario al array like de books y checkea que no este duplicado
      const booksLike=await Book.findByIdAndUpdate(req.params.id,{$addToSet: {likes: req.session.user._id}},{new:true})
-    console.log(booksLike)
+   // console.log(booksLike)
     res.redirect("/")
   }
   catch(error)
