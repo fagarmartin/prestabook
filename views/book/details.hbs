@@ -16,9 +16,10 @@
   <div class="container-btn">
   <form action="/book/{{this.bookDetails._id}}/prestado" method="post">
     {{#if this.bookDetails.stock}}
-      <button>Prestar</button>
+      <button>Tomar Prestado</button>
     {{else}}
-      <button disabled="disabled">Prestar</button>
+      <button disabled="disabled">Tomar Prestado</button>
+      
       <p style="color:red">No hay disponibilidad</p>
     {{/if}}
 </div>
