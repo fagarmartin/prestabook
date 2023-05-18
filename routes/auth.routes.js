@@ -3,9 +3,9 @@ const router = express.Router();
 const User = require("../models/User.model.js");
 const bcrypt = require("bcryptjs");
 const { emit } = require("nodemon");
-
+const { checkLogin } = require("../middlewares/auth.middlewares.js");
 // GET "/auth/signup"=> renderiza el formulario de registro
-router.get("/signup", (req, res, next) => {
+router.get("/signup",checkLogin, (req, res, next) => {
   res.render("auth/signup");
 });
 
@@ -49,7 +49,7 @@ if (email === "" || password === "" || username === "") {
 });
 
 //GET "/auth/login" => renderiza un formulario de acceso a la web
-router.get("/login", (req, res, next) => {
+router.get("/login", checkLogin,(req, res, next) => {
   res.render("auth/login.hbs");
 });
 
