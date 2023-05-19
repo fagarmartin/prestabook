@@ -1,31 +1,36 @@
-
 <div class="container-row">
 
   {{#each this.cloneBooks}}
-   <a class="link-container" href="/book/{{this._id}}/details" >
-    <div class="container-details" style="background-image:url({{this.image}})">
-    
-      <div class="card-info">
-        <div class="card-text" >
-          <h4 class="card-title">{{this.title}}</h4>
-          <h4>{{this.author}}</h4>
-        </div>
-        {{#if this.isLikes}}
-          <form action="/book/{{this._id}}/nolike" method="post">
-            <button class="heart-btn"><i class="fa-solid fa-heart fa-xl" style="color:red"></i></button>
-          </form>
-        {{else}}
-          <form action="/book/{{this._id}}/like" method="post">
-            <button class="heart-btn"><i
-                class="fa-regular fa-heart fa-xl"
-                style="color:red"
-              ></i></button>
-          </form>
-        {{/if}}
+    <a class="link-container" href="/book/{{this._id}}/details">
+      <div
+        class="container-details"
+        style="background-image:url({{this.image}})"
+      >
 
-        <p class="like-text-index">{{this.likesCounter}} likes</p>
+        <div class="card-info">
+          <div class="card-text">
+            <h4 class="card-title">{{this.title}}</h4>
+            <h4>{{this.author}}</h4>
+          </div>
+          {{#if this.isLikes}}
+            <form action="/book/{{this._id}}/nolike" method="post">
+              <button class="heart-btn"><i
+                  class="fa-solid fa-heart fa-xl"
+                  style="color:red"
+                ></i></button>
+            </form>
+          {{else}}
+            <form action="/book/{{this._id}}/like" method="post">
+              <button class="heart-btn"><i
+                  class="fa-regular fa-heart fa-xl"
+                  style="color:red"
+                ></i></button>
+            </form>
+          {{/if}}
+
+          <p class="like-text-index">{{this.likesCounter}} likes</p>
+        </div>
       </div>
-    </div>
     </a>
   {{/each}}
 

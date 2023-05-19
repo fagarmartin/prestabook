@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Book = require("../models/Book.model.js");
-const Prestamo=require("../models/Prestamo.model.js")
+const Prestamo = require("../models/Prestamo.model.js");
 const uploader = require("../middlewares/cloudinary.middleware.js");
 const { isAdmin } = require("../middlewares/auth.middlewares.js");
 
@@ -18,7 +18,7 @@ router.get("/index-admin", async (req, res, next) => {
 });
 
 //GET "/admin/create" => renderiza la vista del formulario de crear libros
-router.get("/create",  (req, res, next) => {
+router.get("/create", (req, res, next) => {
   res.render("admin/create");
 });
 
@@ -39,7 +39,7 @@ router.post("/create", uploader.single("image"), async (req, res, next) => {
       genre,
       image: req.file.path,
     });
-    console.log("libro añadido");
+
     res.redirect("/admin/index-admin");
   } catch (error) {
     next(error);
@@ -48,21 +48,26 @@ router.post("/create", uploader.single("image"), async (req, res, next) => {
 
 //todo en la vista seleccionar el genero que esté en la base de datos
 //GET "/admin/:id/edit" => renderiza la vista del formulario
-router.get("/:id/edit",  async (req, res, next) => {
+router.get("/:id/edit", async (req, res, next) => {
   try {
     const bookDetails = await Book.findById(req.params.id);
-    const listGenre=[{genre:"Romantica"},{genre:"Terror"},{genre:"Novela negra"},{genre:"Narrativa"},{genre:"Historica"},{genre:"Poesia"},{genre:"Ficcion"}]
-    listGenre.forEach(eachGenre => {
+    const listGenre = [
+      { genre: "Romantica" },
+      { genre: "Terror" },
+      { genre: "Novela negra" },
+      { genre: "Narrativa" },
+      { genre: "Historica" },
+      { genre: "Poesia" },
+      { genre: "Ficcion" },
+    ];
+    listGenre.forEach((eachGenre) => {
       // crea una propiedad en el array de generos de es seleccionado si coincide con el libro
-      if(eachGenre.genre===bookDetails.genre)
-      {
-        eachGenre.isSelected=true // crea la propiedad en el objecto que sea igual al del libro
-        
+      if (eachGenre.genre === bookDetails.genre) {
+        eachGenre.isSelected = true; // crea la propiedad en el objecto que sea igual al del libro
       }
-    });   
-  // console.log(listGenre)
+    });
 
-    res.render("admin/edit", { bookDetails ,listGenre});
+    res.render("admin/edit", { bookDetails, listGenre });
   } catch (error) {
     next(error);
   }
@@ -70,7 +75,7 @@ router.get("/:id/edit",  async (req, res, next) => {
 
 //POST "/admin/:id/edit" => recibe la informacion del formulario de editar
 //  uploader.single("image"),
-router.post("/:id/edit",  async (req, res, next) => {
+router.post("/:id/edit", async (req, res, next) => {
   const { title, synopsis, numPag, author, genre } = req.body;
   try {
     const editBooks = await Book.findByIdAndUpdate(
@@ -81,7 +86,6 @@ router.post("/:id/edit",  async (req, res, next) => {
         numPag,
         author,
         genre,
-        
       },
       { new: true }
     );
@@ -92,24 +96,31 @@ router.post("/:id/edit",  async (req, res, next) => {
 });
 
 // POST "/admin/:id/edit-img"=> recibir los datos de la imagen del formulario de editar
-router.post("/:id/edit-img", uploader.single("image"), async (req, res, next) => {
-  if (req.file === undefined) {
-    next("no hay imagen");
-    return; 
+router.post(
+  "/:id/edit-img",
+  uploader.single("image"),
+  async (req, res, next) => {
+    if (req.file === undefined) {
+      next("no hay imagen");
+      return;
+    }
+    try {
+      const editImage = await Book.findByIdAndUpdate(
+        req.params.id,
+        {
+          image: req.file.path,
+        },
+        { new: true }
+      );
+      res.redirect("/admin/index-admin");
+    } catch (error) {
+      next(error);
+    }
   }
-  try{
-    const editImage = await Book.findByIdAndUpdate(req.params.id,{
-      image: req.file.path
-    }, {new: true })
-    res.redirect("/admin/index-admin")
-  }
-  catch(error){
-    next(error)
-  }
-})
+);
 
 //POST "/admin/:id/delete" => borrar libro por su id
-router.post("/:id/delete",  async (req, res, next) => {
+router.post("/:id/delete", async (req, res, next) => {
   try {
     const bookDeleted = await Book.findByIdAndDelete(req.params.id);
     res.redirect("/admin/index-admin");
@@ -119,17 +130,17 @@ router.post("/:id/delete",  async (req, res, next) => {
 });
 
 //GET "/admin/list-status" => renderiza la lista de libros prestados y retornados
-router.get("/list-status",async(req,res,next)=>{
+router.get("/list-status", async (req, res, next) => {
+  try {
+    const searchStatus = await Prestamo.find({ status: "Prestado" })
+      .sort({ user: 1 })
+      .populate("book")
+      .populate("user");
 
-  try{
-      const searchStatus= await Prestamo.find({status:"Prestado"}).sort({user:1}).populate("book").populate("user")   
-      console.log(searchStatus)
-      res.render("admin/list-status",{searchStatus})
+    res.render("admin/list-status", { searchStatus });
+  } catch (error) {
+    next(error);
   }
-  catch(error)
-  {
-    next(error)
-  }
-})
+});
 
 module.exports = router;

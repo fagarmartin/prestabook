@@ -7,28 +7,28 @@ const userSchema = new Schema(
       type: String,
       trim: true,
       required: true,
-      unique: false
+      unique: false,
     },
     email: {
       type: String,
       required: true,
       unique: true,
       lowercase: true,
-      trim: true
+      trim: true,
     },
     password: {
       type: String,
-      required: true
-    }
-    ,role:{
-      type:String,
-      enum:["user","admin"],
-      default:"user"
-    }
+      required: true,
+    },
+    role: {
+      type: String,
+      enum: ["user", "admin"],
+      default: "user",
+    },
   },
   {
-    // this second object adds extra properties: `createdAt` and `updatedAt`    
-    timestamps: true
+    // this second object adds extra properties: `createdAt` and `updatedAt`
+    timestamps: true,
   }
 );
 

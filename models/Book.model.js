@@ -28,7 +28,7 @@ const bookSchema = new Schema({
   likes: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User"     
+      ref: "User",
     },
   ],
   // quantity: Number,
@@ -36,10 +36,10 @@ const bookSchema = new Schema({
     type: String,
     required: true,
   },
-  stock:{
-    type:Number,
-    default: 1
-  } 
+  stock: {
+    type: Number,
+    default: 1,
+  },
 });
 
 const Book = model("Book", bookSchema);

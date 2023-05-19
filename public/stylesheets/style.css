@@ -47,7 +47,7 @@ button.login-btn {
   letter-spacing: 5px;
   background-color: rgb(44, 163, 233);
   color: white;
-  
+
   cursor: pointer;
   font-size: 15px;
 }
@@ -66,15 +66,14 @@ button.login-btn:active {
   color: whitesmoke;
   margin: 3px 0;
   font-style: italic;
- 
 }
 
-.form-container a{
+.form-container a {
   font-weight: bold;
   letter-spacing: 1px;
 }
 
-.form-container h3{
+.form-container h3 {
   font-weight: bold;
   letter-spacing: 1px;
   color: rgb(31, 127, 182);
@@ -94,28 +93,26 @@ footer {
   padding: 10px 20px;
 }
 
-.flex-center{
+.flex-center {
   display: flex;
   justify-content: center;
   margin-top: 50px;
 }
 .create-form {
- 
   padding: 20px;
   width: 550px;
   background-color: rgba(215, 219, 221, 0.7);
   border-radius: 20px;
 }
-.admin-edit-forms{
+.admin-edit-forms {
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  gap:50px;
+  gap: 50px;
   margin-top: 50px;
 }
-.edit-img-form{
-  
+.edit-img-form {
   padding: 20px;
   width: 550px;
   height: 250px;
@@ -123,7 +120,9 @@ footer {
   border-radius: 20px;
 }
 .create-form input,
-select ,.edit-img-form input,select {
+select,
+.edit-img-form input,
+select {
   height: 30px;
   font-size: 1.2em;
   border-radius: 8px;
@@ -140,11 +139,13 @@ select ,.edit-img-form input,select {
   resize: none;
 }
 
-.create-form label,.edit-img-form label {
+.create-form label,
+.edit-img-form label {
   font-size: 1.5em;
 }
 
-.create-form h3,.edit-img-form h3 {
+.create-form h3,
+.edit-img-form h3 {
   color: rgb(1, 63, 55);
   text-align: center;
   font-size: 1.8em;
@@ -171,8 +172,6 @@ select ,.edit-img-form input,select {
 }
 
 /*formulario editar/borrar*/
-
-
 
 .delete-form-btn,
 .edita-form-btn {
@@ -220,17 +219,17 @@ select ,.edit-img-form input,select {
   border-radius: 25px;
   padding: 15px;
 }
-.container-details:hover{
+.container-details:hover {
   transform: scale(1.05);
 }
-.comentario-form{
+.comentario-form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.comentar-btn button{
- background-color: rgb(48, 97, 204);
+.comentar-btn button {
+  background-color: rgb(48, 97, 204);
   cursor: pointer;
   color: white;
   font-weight: bold;
@@ -240,10 +239,9 @@ select ,.edit-img-form input,select {
   border-radius: 8px;
 }
 
-.comentar-btn button:hover{
+.comentar-btn button:hover {
   background-color: rgb(29, 68, 151);
 }
-
 
 .card-info {
   display: flex;
@@ -254,8 +252,8 @@ select ,.edit-img-form input,select {
   border-radius: 20px;
   padding: 20px 20px 5px 20px;
 }
-.link-container{
-  color:black;
+.link-container {
+  color: black;
 }
 .card-title {
   border-top: 2px solid rgb(99, 98, 98);
@@ -268,7 +266,7 @@ select ,.edit-img-form input,select {
 
 h3.admin-list-title {
   text-align: center;
-  font-size: 2.2em;  
+  font-size: 2.2em;
   margin: 40px 0 60px 0;
 }
 .container-row {
@@ -315,7 +313,6 @@ h3.admin-list-title {
 /*BARRA DE NAVEGACION*/
 
 .nav-bar {
-  
   background-color: black;
   display: flex;
   flex-direction: row;
@@ -323,101 +320,94 @@ h3.admin-list-title {
   justify-content: space-between;
   align-items: center;
   padding: 0 30px;
-  min-height:70px ;
+  min-height: 70px;
 }
-.nav-bar-left-admin{
+.nav-bar-left-admin {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
 }
-.nav-bar-left{
+.nav-bar-left {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
 }
-.nav-bar-right{
+.nav-bar-right {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  
-  
 }
- .nav-bar-right form{
+.nav-bar-right form {
   margin-right: 40px;
-  
 }
-.nav-bar-right input{
+.nav-bar-right input {
   outline: none;
-	box-sizing: border-box;
-	height: 40px;
-	width: 0px;
-	padding: 0 20px;
-	color: #000;
-	border-radius: 50px;
-	font-size: 20px;
-	border: 1px solid #3e0acf;
-	transition: all .7s ease; 
-
+  box-sizing: border-box;
+  height: 40px;
+  width: 0px;
+  padding: 0 20px;
+  color: #000;
+  border-radius: 50px;
+  font-size: 20px;
+  border: 1px solid #3e0acf;
+  transition: all 0.7s ease;
 }
 
 ::placeholder {
-	color: grey;
+  color: grey;
 }
-.nav-bar-right button{  
-	width: 50px;
-	height: 50px;
-	background: #807575;
-	line-height: 80px;
-	border-radius: 50%;
-	text-align: center;
-	cursor: pointer;
-	
+.nav-bar-right button {
+  width: 50px;
+  height: 50px;
+  background: #807575;
+  line-height: 80px;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
 }
-.user-name{
+.user-name {
   margin-left: 15px;
 }
-.heart-btn{
+.heart-btn {
   cursor: pointer;
   background-color: transparent;
   border: none;
 }
-.heart-btn i:hover{
+.heart-btn i:hover {
   transform: scale(1.2);
   color: darkred !important;
 }
-#boton-i{
+#boton-i {
   font-size: 25px;
-	color: white;
-	line-height: 40px;
-	transition: all .7s ease; 
- 
+  color: white;
+  line-height: 40px;
+  transition: all 0.7s ease;
 }
 /* .nav-bar-right:hover input{
   width: 350px;
 } */
 
- .nav-bar-right input:focus{
+.nav-bar-right input:focus {
   width: 350px;
-} 
-
-
-#boton-i:hover{
-	transform: rotate(-360deg);
 }
 
- .nav-bar-right button:hover{
-	background: #cc0000;
-} 
+#boton-i:hover {
+  transform: rotate(-360deg);
+}
+
+.nav-bar-right button:hover {
+  background: #cc0000;
+}
 
 .nav-bar-admin {
   min-height: 70px;
   background-color: black;
   display: flex;
-  flex-direction: row;  
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
@@ -436,75 +426,70 @@ h3.admin-list-title {
   text-decoration: underline;
 }
 
-
 .nav-bar-admin input {
   width: 400px;
   height: 30px;
   border-radius: 10px;
   padding: 0 20px;
-  
-} 
+}
 
-
-
-i{
+i {
   padding: 5px;
 }
 
-.container-general{
+.container-general {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 600px;
   margin: auto;
   padding: 50px;
-
 }
-.imagen-portada img{
+.imagen-portada img {
   height: 400px;
   margin: 30px 0 30px 0;
 }
 
-.autor{
+.autor {
   font-size: 20px;
   text-align: center;
   margin-bottom: 20px;
-
 }
 
-.container-detalles p{
+.container-detalles p {
   text-align: justify;
   margin-bottom: 20px;
 }
-.cajita-datos{
+.cajita-datos {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 20px;
 }
-.comentario{
+.comentario {
   border: 1px solid rgb(168, 168, 168);
   border-radius: 10px;
   margin-top: 15px;
 }
 
-.container-comentario-form{
+.container-comentario-form {
   margin-top: 20px;
 }
-.comentario-form textarea{
+.comentario-form textarea {
   padding: 5px;
 }
-.comentario h4,p{
-padding: 10px 5px;
+.comentario h4,
+p {
+  padding: 10px 5px;
 }
-.comentario h4{
+.comentario h4 {
   background-color: lightgray;
   border-radius: 10px 10px 0 0;
 }
 
-.comentarios-list h3{
+.comentarios-list h3 {
   margin: 10px 0;
 }
-.container-btn button{
+.container-btn button {
   background-color: rgb(18, 104, 93);
   cursor: pointer;
   color: white;
@@ -517,63 +502,60 @@ padding: 10px 5px;
 .container-btn button:hover {
   background-color: rgb(8, 204, 178);
 }
-.title-detalles{
+.title-detalles {
   font-size: 30px;
   font-weight: bolder;
   text-decoration: underline;
 }
 
-.like-text{
-  color:rgb(65, 65, 185);
+.like-text {
+  color: rgb(65, 65, 185);
   font-weight: bold;
   font-size: 1.2em;
 }
 
 /* vista perfil usuario*/
 
-.card{
+.card {
   position: relative;
   width: 200px;
   height: 300px;
   margin: 20px;
-
 }
-.container-cont{
+.container-cont {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.card .face{
+.card .face {
   position: absolute;
   width: 200px;
   height: 300px;
   backface-visibility: hidden;
   border-radius: 10px;
   overflow: hidden;
-  transition: .5s; 
+  transition: 0.5s;
 }
-.card .front{
+.card .front {
   transform: perspective(600px) rotateY(0deg);
-  box-shadow: 0 5px 10px #000 ;
+  box-shadow: 0 5px 10px #000;
 }
-.card .front img{
+.card .front img {
   position: absolute;
   width: 100%;
   height: 100%;
- 
-
 }
-.card .front h3{
+.card .front h3 {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 45px;
   line-height: 45px;
   color: #fff;
-  background: rgba(0,0,0, .4);
+  background: rgba(0, 0, 0, 0.4);
   text-align: center;
 }
-.card .back{
+.card .back {
   transform: perspective(600px) rotateY(180deg);
   background: rgb(3, 35, 54);
   padding: 15px;
@@ -582,34 +564,33 @@ padding: 10px 5px;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  box-shadow: 0 5px, 10px, #000 ;
+  box-shadow: 0 5px, 10px, #000;
   gap: 20px;
-
 }
-.card .back .link{
+.card .back .link {
   border-top: solid 1px #f3f3f3;
   height: 50px;
   line-height: 50px;
 }
-.card .back .link a{
+.card .back .link a {
   color: #f3f3f3;
 }
-.card .back .h3{
+.card .back .h3 {
   font-size: 25px;
   margin-top: 20px;
   letter-spacing: 2px;
 }
-.card .back p{
+.card .back p {
   letter-spacing: 1px;
 }
 
-.card:hover .front{
+.card:hover .front {
   transform: perspective(600px) rotateY(180deg);
 }
-.card:hover .back{
+.card:hover .back {
   transform: perspective(600px) rotateY(360deg);
 }
-.retorna-btn button{
+.retorna-btn button {
   background-color: rgb(18, 104, 93);
   cursor: pointer;
   color: white;
@@ -623,32 +604,30 @@ padding: 10px 5px;
 .edita-btn button:hover {
   background-color: rgb(8, 204, 178);
 }
-.tituloindexuser{
+.tituloindexuser {
   text-align: center;
   font-size: 30px;
   margin-top: 30px;
   margin-bottom: 30px;
-  
 }
 
-a.nombre-web{
-  
-  font-family: 'Anton', sans-serif;  
+a.nombre-web {
+  font-family: "Anton", sans-serif;
   letter-spacing: 5px;
-  
+
   font-size: 35px;
 }
-a.nombre-web:hover{
+a.nombre-web:hover {
   text-decoration: none;
 }
 
-.h1-web-title{
+.h1-web-title {
   font-size: 100px;
-  font-family: 'Anton', sans-serif;
-  color:black;
+  font-family: "Anton", sans-serif;
+  color: black;
   letter-spacing: 15px;
 }
 
-footer p{
+footer p {
   color: rgb(31, 127, 182);
 }

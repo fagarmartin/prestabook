@@ -7,13 +7,11 @@ function isLoggedIn(req, res, next) {
 }
 
 // para que en el login no se pueda entrar si estas logueado y escribes la direccion a mano en la url
-function checkLogin(req,res,next)
-{
+function checkLogin(req, res, next) {
   if (req.session.user !== undefined) {
-    res.redirect("/");     
-  }
-  else{
-    next()
+    res.redirect("/");
+  } else {
+    next();
   }
 }
 function isUser(req, res, next) {
@@ -49,4 +47,4 @@ function updateLocals(req, res, next) {
   next();
 }
 
-module.exports = { isLoggedIn, isUser, isAdmin, updateLocals,checkLogin };
+module.exports = { isLoggedIn, isUser, isAdmin, updateLocals, checkLogin };

@@ -10,6 +10,7 @@ Perfil Admin
 El Administrador tendrá su pagina principal donde verá listado de todos los libros de la plataforma. Desde este perfil podrá añadir libros nuevos, editar o borrar los libros que ya no sean necesario. Además, podrá revisar los libros prestados a los usuarios y el stock que hay de cada libro.
 
 ROUTES
+GET "/"=> renderiza la pagina principal
 GET "/auth/signup"=> renderiza el formulario de registro
 POST "/auth/signup"=> recoge los datos del formulario de registro
 GET "/auth/login" => renderiza un formulario de acceso a la web
@@ -30,6 +31,9 @@ POST "/book/:id/like" => recoge los datos del me gusta para añadirlo al array d
 POST "/book/:id/nolike" => recoge los datos del me gusta para quitarlo a la array de like de Book
 GET "/private/profile" => renderiza página privada del usuario ,lista de libros en préstamo y leídos
 POST "/private/:id/retornado"
+comentarios
+POST "/comentario/:id/create" => recoge los datos del formulario de crear comentario
+
 
 MODELS
 Book.model: {title, sypnosis, numPag, autor, genre, likes, image, stock}

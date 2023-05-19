@@ -2,28 +2,36 @@
 
   <h1 class="h1-web-title">PRESTABOOK</h1>
 
-    <form class="form-container" action="/auth/signup" method="post">
-      <h3>Formulario de Registro</h3>
-      
+  <form class="form-container" action="/auth/signup" method="post">
+    <h3>Formulario de Registro</h3>
+
     <label for="username">Nombre de Usuario</label>
-    <input type="text" name="username" placeholder="Introduzca nombre de usuario" >
-    
+    <input
+      type="text"
+      name="username"
+      placeholder="Introduzca nombre de usuario"
+    />
+
     <label for="email">Correo</label>
-    <input type="email" name="email" placeholder="Introduzca email">
-    
+    <input type="email" name="email" placeholder="Introduzca email" />
+
     <label for="password">Contraseña</label>
-    <input type="password" name="password" placeholder="Introduzca Contraseña">
-    
+    <input
+      type="password"
+      name="password"
+      placeholder="Introduzca Contraseña"
+    />
+
     <button class="login-btn">REGISTRO</button>
     <p class="not-member">
       ¿Eres miembro?
       <a href="/auth/login">Login</a>
     </p>
-     {{#if this.errorMessage}}
-      <p style= "color: red" >{{this.errorMessage}}</p>
+    {{#if this.errorMessage}}
+      <p style="color: red">{{this.errorMessage}}</p>
     {{/if}}
-    </form>
-    <footer>
-       <p>Proyecto realizado por FA-CRIS</p>
-    </footer>
+  </form>
+  <footer>
+    <p>Proyecto realizado por FA-CRIS</p>
+  </footer>
 </div>
